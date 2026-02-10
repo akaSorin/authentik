@@ -136,7 +136,7 @@
 
     position: relative;
     max-width: var(--ak-c-login--MaxWidth);
-    min-height: calc(var(--ak-c-login--MaxWidth) * 0.8);
+    min-height: var(--ak-c-login__main--MinHeight, unset);
 
     display: flex;
     flex-flow: column;
@@ -145,6 +145,10 @@
     .slotted-content {
         position: relative;
         flex: 1 1 auto;
+    }
+
+    &:has([slot="placeholder"]) {
+        --ak-c-login__main--MinHeight: calc(var(--ak-c-login--MaxWidth) * 0.8);
     }
 
     @media (max-width: 35rem) or (max-height: 17.5rem) {
